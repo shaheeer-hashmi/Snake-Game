@@ -67,3 +67,8 @@ main{
 .fill{
     background-color: var(--color-border);
 }
+
+
+.food{
+    background-color: var(--color-danger);
+}
