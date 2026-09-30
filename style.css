@@ -25,6 +25,20 @@ main{
     padding: var(--space-10);
 }
 
+/*  Buttons */
+
+.btn{
+    padding: var(--space-2) var(--space-3);
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all 1s ease-in-out;
+}
+
+.btn:hover{
+    transform: scale(1.2);
+}
+
 
 /* info */
 
@@ -71,4 +85,29 @@ main{
 
 .food{
     background-color: var(--color-danger);
+}
+
+.modal{
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.802);
+    backdrop-filter: blur(4px);
+    z-index: 30;
+}
+
+.modal .start, .modal .game-over{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-6);
+
+}
+
+.modal .game-over{
+    display: none;
 }
