@@ -3,9 +3,18 @@ const startButton = document.querySelector('.btn-start');
 const modal = document.querySelector('.modal');
 const startGameModal = document.querySelector('.start');
 const gameOverModal = document.querySelector('.game-over');
-const restartButton = document.querySelector('.btn-restart')
+const restartButton = document.querySelector('.btn-restart');
+const highScoreElement = document.querySelector('#high-score');
+const scoreElement = document.querySelector('#score');
+const timeElement = document.querySelector('#time')
 const blockWidth = 50;
 const blockHeight = 50;
+
+let highScore = localStorage.getItem('highScore') || 0;
+let score = 0;
+let time = `00-00`;
+
+highScoreElement.innerHTML = highScore
 
 const cols = Math.floor(board.clientWidth / blockWidth)
 const rows = Math.floor(board.clientHeight / blockHeight)
@@ -33,7 +42,8 @@ for (let row= 0; row <rows; row++){
 // Rendering the Snake & The Logic of The movement of the Snake
 
 function renderSnake(){
-
+  let highScore = localStorage.getItem('highScore') || 0;
+  highScoreElement.innerHTML = highScore
   blocks[`${food.x}-${food.y}`].classList.add('food')
   let head = null
   if (direction === 'left'){
@@ -45,6 +55,8 @@ function renderSnake(){
   }else if(direction ==='up'){
     head = {x:snake[0].x-1, y: snake[0].y}
   }
+
+  // Wall Collion 
   if(head.x<0 ||  head.x>=rows || head.y<0 || head.y>=cols){
     modal.style.display = 'flex'
     startGameModal.style.display = 'none';
@@ -52,13 +64,21 @@ function renderSnake(){
     clearInterval(intervalId)
     return
   }
+  // Food Consuption
+
   if(head.x == food.x && head.y == food.y){
     blocks[`${food.x}-${food.y}`].classList.remove('food');
     food = {x: Math.floor(Math.random() * rows), y:Math.floor(Math.random() * cols)}
     blocks[`${food.x}-${food.y}`].classList.add('food')
     snake.unshift(head)
+    score += 10;
+    scoreElement.innerText = score
+    if(score>highScore){
+      highScore = score
+      localStorage.setItem('highScore',highScore.toString())
+    }
   }
-
+  
 
   snake.forEach(segment =>{
     blocks[`${segment.x}-${segment.y}`].classList.remove('fill')
@@ -80,6 +100,11 @@ restartGame = ()=>{
   snake.forEach(segment =>{
     blocks[`${segment.x}-${segment.y}`].classList.remove('fill')
   })
+  score = 0
+  time = `00:00`
+  scoreElement.innerText = score
+  timeElement.innerText = time
+  highScoreElement.innerText = highScore
 
   modal.style.display = 'none'
   snake = [{x: 5, y:6}]
