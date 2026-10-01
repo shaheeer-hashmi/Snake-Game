@@ -1,33 +1,70 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="variables.css">
-  <link rel="stylesheet" href="style.css">
-  <title>Snake Game</title>
-</head>
-<body>
-  <main>
-    <div class="infos">
-      <div class="info">High Score: <span id="high-score"><h3>00</h3></span></div>
-      <div class="info">Score: <span id="score"><h3>00</h3></span></div>
-      <div class="info">Time: <span id="time"><h3>00-00</h3></span></div>
-    </div>
-    <div class="board">
-    </div>
-    
-  </main>
-  <div class="modal">
+  <head>
+    <!-- Basic HTML document settings -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Connect CSS files -->
+    <link rel="stylesheet" href="variables.css" />
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Snake Game</title>
+  </head>
+
+  <body>
+    <main>
+      <!-- Game Information -->
+      <div class="infos">
+        <!-- Display the High Score -->
+        <div class="info">
+          High Score:
+          <span id="high-score">
+            <h3>00</h3>
+          </span>
+        </div>
+
+        <!-- Display the Current Score -->
+        <div class="info">
+          Score:
+          <span id="score">
+            <h3>00</h3>
+          </span>
+        </div>
+
+        <!-- Display the Game Time -->
+        <div class="info">
+          Time:
+          <span id="time">
+            <h3>00:00</h3>
+          </span>
+        </div>
+      </div>
+
+      <!-- Snake Game Board -->
+      <div class="board"></div>
+    </main>
+
+    <!-- Game Modal -->
+    <div class="modal">
+      <!-- Starting Screen -->
       <div class="start">
         <h3>Welcome To The Snake Game</h3>
+
+        <!-- Button to Start the Game -->
         <button class="btn btn-start">Start Game</button>
       </div>
+
+      <!-- Game Over Screen -->
       <div class="game-over">
         <h3>Game Over</h3>
+
+        <!-- Button to Restart the Game -->
         <button class="btn btn-restart">Restart Game</button>
       </div>
-  </div>
-  <script src="script.js"></script>
-</body>
+    </div>
+
+    <!-- Connect JavaScript file -->
+    <script src="script.js"></script>
+  </body>
 </html>

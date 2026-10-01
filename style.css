@@ -1,21 +1,34 @@
+/* Reset default browser styles */
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+
+/* Set the height and width of the page */
 html , body{
     height: 100%;
     width: 100%;
 }
 
+
+/* Import the variables */
 @import url(./variables.css);
 
+
+
+/* Body */
 
 body{
     background-color: rgb(14, 14, 14);
     color: var(--color-background);
     font-family: var(--font-family-base);
 }
+
+
+
+/* Main */
 
 main{
     display: flex;
@@ -25,7 +38,9 @@ main{
     padding: var(--space-10);
 }
 
-/*  Buttons */
+
+
+/* Buttons */
 
 .btn{
     padding: var(--space-2) var(--space-3);
@@ -35,12 +50,16 @@ main{
     transition: all 1s ease-in-out;
 }
 
+
+/* Button Hover Effect */
+
 .btn:hover{
     transform: scale(1.2);
 }
 
 
-/* info */
+
+/* Info */
 
 .infos{
     display: flex;
@@ -48,6 +67,7 @@ main{
     padding: var(--space-6) 0;
     text-align: center;
 }
+
 
 .info{
     display: flex;
@@ -60,6 +80,9 @@ main{
 }
 
 
+
+/* Game Board */
+
 .board{
     width: 100%;
     height: 100%;
@@ -71,21 +94,35 @@ main{
 }
 
 
+
+/* Individual Board Boxes */
+
 .box{
     height: 50px;
     width: 50px;
     border: 1px solid var(--color-secondary);
+    border-radius: 50%;
 }
 
+
+
+/* Snake */
 
 .fill{
     background-color: var(--color-border);
 }
 
 
+
+/* Food */
+
 .food{
     background-color: var(--color-danger);
 }
+
+
+
+/* Game Modal */
 
 .modal{
     height: 100vh;
@@ -100,6 +137,10 @@ main{
     z-index: 30;
 }
 
+
+
+/* Start and Game Over Screens */
+
 .modal .start, .modal .game-over{
     display: flex;
     flex-direction: column;
@@ -107,6 +148,9 @@ main{
     gap: var(--space-6);
 
 }
+
+
+/* Hide the Game Over Screen initially */
 
 .modal .game-over{
     display: none;
