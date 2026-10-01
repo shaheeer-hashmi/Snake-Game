@@ -90,7 +90,7 @@ Snake-Game/
 Clone the repository:
 
 ```bash
-git clone YOUR_REPOSITORY_URL
+git clone https://github.com/shaheeer-hashmi/Snake-Game
 ```
 
 Open the project folder and launch:
